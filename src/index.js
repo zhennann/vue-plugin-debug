@@ -10,8 +10,11 @@ function install(_Vue, options) {
   // caches
   const __debug_caches = {};
 
+  // enabled
+  const __debugEnabled = Vue.config.productionTip;
+
   // log
-  if (Vue.config.productionTip) {
+  if (__debugEnabled) {
     DebugInstance.log = console.log || (() => { });
   } else {
     DebugInstance.log = (() => { });
@@ -23,6 +26,9 @@ function install(_Vue, options) {
     get(namespace) {
       if (!__debug_caches[namespace]) {
         __debug_caches[namespace] = DebugInstance(namespace);
+        if (!__debugEnabled) {
+          __debug_caches[namespace].enabled = false;
+        }
       }
       return __debug_caches[namespace];
     },
