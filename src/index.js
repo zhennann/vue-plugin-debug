@@ -11,7 +11,11 @@ function install(_Vue, options) {
   const __debug_caches = {};
 
   // log
-  DebugInstance.log = console.log || (() => {});
+  if (Vue.config.productionTip) {
+    DebugInstance.log = console.log || (() => { });
+  } else {
+    DebugInstance.log = (() => { });
+  }
 
   // debug
   const debug = {

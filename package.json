@@ -1,6 +1,6 @@
 {
   "name": "vue-plugin-debug",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vue-plugin-debug",
   "main": "./src/index.js",
   "author": "zhennann",
